@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+    stages{
+        stage('build and test') {
+            stages{
+                stage('compliation'){
+                steps{
+                    echo "Hello this is compilation stage"
+                }
+                }
+                stage('Unit Testing'){
+                    steps{
+                        echo "Hello this is Unit Testing stage"   
+                                   }
+                }              
+         }
+            }
+        }
+    }
