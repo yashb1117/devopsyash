@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # API version for ReplicaSet
+kind: ReplicaSet # Declares this resource as a ReplicaSet
+metadata:
+  name: myreplica # Name of the ReplicaSet
+spec:
+  replicas: 5 # Number of pod replicas to maintain
+  selector:
+    matchLabels: # Selector to match pods with specific labels
+      myname: yash # Label used to identify pods managed by this ReplicaSet
+  template:
+    metadata:
+      name: pod12 # Name of the pod template
+      labels: # Labels applied to each pod created by this ReplicaSet
+        myname: yash # Must match the selector above
+        
+    spec:
+      containers:
+        - name: pod12 # Name of the container
+          image: nginx # Docker image to run (nginx web server)

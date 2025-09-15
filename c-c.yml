@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod12
+spec:
+  containers:
+    - name: image1
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo hi yash; sleep 5; done"]
+    - name: image2
+      image: httpd
+      ports:
+        - containerPort: 80

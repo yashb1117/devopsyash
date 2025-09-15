@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod12
+  labels:
+    env: dev
+    class: mdyash
+spec:
+  containers:
+    - name: y1-iamge
+      iamge: nginx

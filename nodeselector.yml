@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-podnode
+  labels:
+    Type: nodeselector
+spec:
+ containers:
+   - name: myimage
+     image: nginx
+ nodeSelector:
+    hardware: t2medium

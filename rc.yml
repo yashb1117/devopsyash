@@ -1,0 +1,17 @@
+apiVersion: v1                  # Specifies the API version to use for this resource
+kind: ReplicationController     # Defines the type of Kubernetes object (ReplicationController)
+metadata:
+  name: myreplica               # Name of the ReplicationController
+spec:
+  replicas: 5                   # Desired number of pod replicas to maintain
+  selector:                     # Label selector to identify which pods this controller manages
+    myname: yash                # Matches pods with label 'myname: yash'
+  template:                     # Template for the pods that will be created
+    metadata:
+      name: testpod             # Name of the pod (each replica will get a unique suffix)
+      labels:
+        myname: yash            # Label applied to pods; must match the selector above
+      spec:
+      containers:               # List of containers to run in each pod
+        - name: image1          # Name of the container
+          image: nginx          # Docker image to use (nginx web server)

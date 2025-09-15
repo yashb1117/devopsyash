@@ -1,0 +1,11 @@
+apiVersion: v1                # Specifies the API version used for the resource
+kind: Service                 # Declares this resource as a Service
+metadata:
+  name: nodeportservice       # Name of the Service
+spec:
+  type: NodePort              # Exposes the Service on a port across all cluster nodes
+  selector:
+    name: yash                # Matches Pods with label 'name: yash'
+  ports:
+    - port: 80                # Port exposed by the Service
+      targetPort: 80          # Port on the Pod that receives traffic

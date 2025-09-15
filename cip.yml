@@ -1,0 +1,11 @@
+apiVersion: v1                # Uses the core v1 API group for Service resources
+kind: Service                 # Declares this resource as a Service
+metadata:
+  name: myservice             # The name of the Service (used for DNS and discovery)
+spec:
+  ports:
+    - port: 80                # Port exposed by the Service inside the cluster
+      targetPort: 80          # Port on the Pod that receives traffic
+  selector:
+    name: yash                # Matches Pods with label 'name: yash' (from your Deployment)
+  type: ClusterIP             # Default type; exposes the Service only within the cluster
